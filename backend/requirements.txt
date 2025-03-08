@@ -4,5 +4,4 @@ Flask-Caching==2.1.0
 Werkzeug==2.3.7
 SQLAlchemy==2.0.23
 gunicorn==21.2.0
-# Para produção com Azure SQL
 pyodbc==4.0.39

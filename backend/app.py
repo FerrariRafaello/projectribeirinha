@@ -1,5 +1,6 @@
 import os
 import subprocess
+import urllib.parse
 from flask import Flask, request, jsonify, redirect, send_from_directory, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_caching import Cache
@@ -15,7 +16,7 @@ app = Flask(
     static_url_path=''
 )
 app.config['SECRET_KEY'] = 'you-will-never-guess'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///students.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['CACHE_TYPE'] = 'SimpleCache'
 app.config['CACHE_DEFAULT_TIMEOUT'] = 300
@@ -223,4 +224,6 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 
 if __name__ == '__main__':
     app.wsgi_app = ProxyFix(app.wsgi_app)
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    debug_mode = os.environ.get('FLASK_ENV') == 'development'
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
