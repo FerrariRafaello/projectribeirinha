@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Professor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="teacher.css">
+</head>
+<body class="space-gray-bg">
+    <div id="main-container">
+        <div class="container mx-auto px-4 pb-16">
+            <h1 class="text-4xl text-white font-bold pt-8 mb-8 text-center">Dashboard do Professor</h1>
+            
+            <button id="backButton" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-8">
+                Voltar
+            </button>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Status de Conclusão -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h2 class="text-2xl text-white font-bold mb-4">Status de Conclusão</h2>
+                    <div style="height: 250px; position: relative;">
+                        <canvas id="completedChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Progresso dos Alunos -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h2 class="text-2xl text-white font-bold mb-4">Progresso dos Alunos</h2>
+                    <div style="height: 250px; position: relative;">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Lista de alunos que concluíram -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h2 class="text-2xl text-white font-bold mb-4">Alunos que concluíram</h2>
+                    <ul id="completedStudents" class="list-disc pl-6 text-white max-h-60 overflow-y-auto"></ul>
+                </div>
+                
+                <!-- Lista de alunos que não concluíram -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h2 class="text-2xl text-white font-bold mb-4">Alunos que não concluíram</h2>
+                    <ul id="notCompletedStudents" class="list-disc pl-6 text-white max-h-60 overflow-y-auto"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="footer" class="bg-gray-800 border-t border-white text-center text-white p-4">
+        Todos os direitos reservados: 
+        <a href="https://wa.me/5521994414250" target="_blank" class="font-bold hover:underline ml-2">Rafaello S. Ferrari</a>
+    </footer>
+    
+    <script src="teacher.js"></script>
+</body>
+</html>

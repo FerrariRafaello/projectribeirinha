@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login - Python Interactive Editor</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="min-h-screen bg-gray-900 text-white flex bg-cover bg-center">
+    <!-- Container principal centralizado -->
+    <div class="m-auto w-full max-w-md p-6 bg-gray-800 rounded shadow-lg">
+        <h1 class="text-3xl font-bold text-center mb-6">Bem-vindo(a)!</h1>
+
+        <!-- Botões de Selecão: Aluno ou Professor -->
+        <div class="flex flex-col md:flex-row justify-around items-center mb-6">
+            <button
+                id="studentButton"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mb-2 md:mb-0 md:mr-4 w-full md:w-auto"
+            >
+                Sou Aluno
+            </button>
+            <button
+                id="teacherButton"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 w-full md:w-auto"
+            >
+                Sou Professor
+            </button>
+        </div>
+
+        <!-- Formulário de Aluno -->
+        <div id="studentForm" class="hidden flex flex-col">
+            <input
+                id="studentName"
+                type="text"
+                class="block mb-2 p-2 rounded text-black"
+                placeholder="Nome"
+            />
+            <input
+                id="studentRA"
+                type="text"
+                class="block mb-4 p-2 rounded text-black"
+                placeholder="RA (4 dígitos)"
+            />
+            <button
+                id="accessStudent"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4"
+            >
+                Acessar
+            </button>
+        </div>
+
+        <!-- Formulário de Professor -->
+        <div id="teacherForm" class="hidden flex flex-col mt-4">
+            <input
+                id="teacherPassword"
+                type="password"
+                class="block mb-4 p-2 rounded text-black"
+                placeholder="Senha do Professor"
+            />
+            <button
+                id="accessTeacher"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4"
+            >
+                Acessar
+            </button>
+        </div>
+
+        <p id="errorMessage" class="hidden text-red-500 mt-4 text-center">
+            Senha incorreta.
+        </p>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

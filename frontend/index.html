@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python Interactive Editor</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+  ></script>
+</head>
+<body class="relative min-h-screen bg-cover bg-center text-white"
+      style="background-image: url('image.jpg');">
+  <!-- Botão Voltar (canto superior direito) -->
+  <button
+    id="backButton"
+    class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+  >
+    Voltar
+  </button>
+
+  <!-- Conteúdo central -->
+  <div class="flex items-center justify-center min-h-screen">
+    <!-- Container cinza translúcido com opacidade 0.40, dimensões aumentadas -->
+    <div class="w-11/12 max-w-6xl mx-auto bg-gray-800 bg-opacity-70 rounded p-8 md:flex">
+      <!-- Coluna Esquerda: Lição -->
+      <div class="w-full md:w-1/2 md:pr-6 mb-6 md:mb-0">
+        <div id="studentNameDisplay" class="text-2xl font-bold mb-2 hidden"></div>
+        <h1 class="text-3xl font-bold mb-4">Editor de Python</h1>
+        <div id="lesson-content" class="mb-6 text-white">
+          <!-- Lição será injetada pelo script -->
+        </div>
+        <div class="flex justify-between mb-6">
+          <button
+            id="prevLesson"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4"
+          >
+            Anterior
+          </button>
+          <button
+            id="nextLesson"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4"
+          >
+            Próxima
+          </button>
+        </div>
+        <button
+          id="completeLesson"
+          class="bg-gray-500 opacity-50 text-white font-bold py-2 px-4"
+        >
+          Concluir Lição
+        </button>
+      </div>
+
+      <!-- Coluna Direita: Editor de Código -->
+      <div class="w-full md:w-1/2 md:pl-6">
+        <h1 class="text-3xl font-bold text-center mb-4">Editor</h1>
+        <div
+          id="editor"
+          class="w-full border border-gray-700 rounded p-2"
+          style="min-height: 350px;"
+        ></div>
+        <button
+          id="runButton"
+          class="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4"
+        >
+          Executar
+        </button>
+        <div
+          id="output"
+          class="mt-4 p-4 bg-black text-green-300 rounded hidden"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensagem de conclusão -->
+  <div id="completionMessage" class="fixed inset-0 hidden flex items-center justify-center">
+    <div class="bg-white text-gray-900 p-6 rounded shadow-lg">
+      <h2 class="text-2xl font-bold mb-4">Parabéns!</h2>
+      <p class="mb-4">
+        Espero que tenha gostado do conteúdo. Continue estudando e praticando para aprimorar suas habilidades!
+      </p>
+      <button id="finishButton" class="bg-black text-white py-2 px-4 rounded">
+        Finalizar
+      </button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
