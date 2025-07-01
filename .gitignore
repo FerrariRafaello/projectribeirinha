@@ -1,4 +1,3 @@
-# Arquivos do Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -20,31 +19,25 @@ var/
 .installed.cfg
 *.egg
 
-# Ambiente virtual
 venv/
 ENV/
 
-# Arquivos do Flask
 instance/
 .webassets-cache
 
-# SQLite database
 backend/*.db
 backend/*.sqlite
 
 # Logs
 *.log
 
-# Arquivos de ambiente
 .env
 .env.local
 
-# IDEs e editores
 .idea/
 .vscode/
 *.swp
 *.swo
 
-# Sistema operacional
 .DS_Store
 Thumbs.db
